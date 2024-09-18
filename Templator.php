@@ -7,9 +7,11 @@ namespace System\View;
 use System\View\Templator\BreakTemplator;
 use System\View\Templator\CommentTemplator;
 use System\View\Templator\ContinueTemplator;
+use System\View\Templator\DirectiveTemplator;
 use System\View\Templator\EachTemplator;
 use System\View\Templator\IfTemplator;
 use System\View\Templator\IncludeTemplator;
+use System\View\Templator\JsonTemplator;
 use System\View\Templator\NameTemplator;
 use System\View\Templator\PHPTemplator;
 use System\View\Templator\SectionTemplator;
@@ -132,6 +134,7 @@ class Templator
             SectionTemplator::class,
             IncludeTemplator::class,
             PHPTemplator::class,
+            DirectiveTemplator::class,
             NameTemplator::class,
             IfTemplator::class,
             EachTemplator::class,
@@ -139,6 +142,7 @@ class Templator
             ContinueTemplator::class,
             BreakTemplator::class,
             UseTemplator::class,
+            JsonTemplator::class,
         ], function (string $template, string $templator): string {
             $templator = new $templator($this->finder, $this->cacheDir);
             if ($templator instanceof IncludeTemplator) {
